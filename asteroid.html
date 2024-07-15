@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asteroid - Explore the Universe: Asteroids</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+
+    #main-header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #f9f871;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+    }
+
+    .title {
+      font-size: 8rem;
+      background: linear-gradient(to bottom, white, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .title.visible {
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    .sketchfab-embed-wrapper {
+      width: 100%;
+      height: 100vh;
+      margin: 20px 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .info-block {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    .info-block.hidden {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    #rocket-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 200px;
+      background: url('rocket.png') no-repeat center center;
+      background-size: contain;
+      animation: launch 5s ease-in-out forwards;
+      z-index: 10;
+    }
+
+    #message {
+      position: absolute;
+      bottom: 220px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+    }
+
+    @keyframes launch {
+      0% {
+        bottom: 0;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        bottom: 50%;
+        transform: translateX(-50%) scale(1.5);
+      }
+
+      100% {
+        bottom: 100%;
+        transform: translateX(-50%) scale(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="rocket-container"></div>
+  <div id="message">Exploring the Realm of Asteroids</div>
+
+  <header id="main-header" style="display: none;">
+    <h1>Explore the Universe</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="section" id="main-section">
+      <div class="title" id="main-title"><b>ASTEROIDS</b></div>
+      <div>
+        <h2 style="font-size: 2.5rem;" id="asteroid-topic" class="fade-in">What are Asteroids?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="asteroid-text"
+          class="fade-in">
+          Asteroids are rocky bodies that orbit the Sun, primarily found in the asteroid belt between Mars and Jupiter.
+          They are remnants from the early solar system, composed of materials that never formed into a planet.
+          Asteroids vary in size from tiny pebbles to about 600 miles in diameter. They can have irregular shapes and
+          may contain metal-rich or carbon-rich compositions. Studying asteroids helps scientists understand the
+          conditions and processes of the early solar system.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="asteroid-formation-topic" class="fade-in">Formation and Classification</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="asteroid-formation-text" class="fade-in">
+          Asteroids formed from the leftover building blocks of the solar system that never coalesced into planets. They
+          are classified based on their composition: C-type (carbonaceous), S-type (silicaceous), and M-type (metallic).
+          C-type asteroids are the most common, making up about 75% of known asteroids. They are dark and rich in
+          carbon. S-type asteroids are made of silicate materials and nickel-iron, while M-type asteroids are composed
+          mainly of metallic iron-nickel.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="asteroid-impact-topic" class="fade-in">Asteroid Impacts and Threats</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="asteroid-impact-text" class="fade-in">
+          Asteroids have impacted Earth throughout its history, shaping its surface and potentially influencing the
+          evolution of life. The most famous impact is believed to have caused the extinction of the dinosaurs 65
+          million years ago. Today, scientists monitor Near-Earth Objects (NEOs) to identify potential threats. NASA's
+          Planetary Defense Coordination Office is tasked with detecting, tracking, and characterizing potentially
+          hazardous asteroids and developing strategies to mitigate the threat of an impact.
+        </p>
+      </div>
+      <div class="sketchfab-embed-wrapper"> <iframe title="Asteroids" frameborder="0" allowfullscreen
+          mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+          xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+          src="https://sketchfab.com/models/bi6oZSkyn9f9QGgTAqq7GvaCohn/embed"> </iframe>
+        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a
+            href="https://sketchfab.com/3d-models/asteroids-bi6oZSkyn9f9QGgTAqq7GvaCohn?utm_medium=embed&utm_campaign=share-popup&utm_content=bi6oZSkyn9f9QGgTAqq7GvaCohn"
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const rocketContainer = document.getElementById('rocket-container');
+      const message = document.getElementById('message');
+      const mainHeader = document.getElementById('main-header');
+      const mainSection = document.getElementById('main-section');
+      const mainTitle = document.getElementById('main-title');
+      const fadeInElements = document.querySelectorAll('.fade-in');
+
+      setTimeout(() => {
+        rocketContainer.style.animation = 'fadeOut 2s forwards';
+        message.style.animation = 'fadeOut 2s forwards';
+      }, 3000);
+
+      setTimeout(() => {
+        mainHeader.style.display = 'flex';
+        mainSection.classList.add('visible');
+        mainTitle.classList.add('visible');
+        fadeInElements.forEach(element => {
+          element.classList.add('visible');
+        });
+      }, 5000);
+    });
+  </script>
+</body>
+
+</html>

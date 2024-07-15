@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore the Universe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .title {
+      font-size: 7rem;
+      background: linear-gradient(to bottom, #0EE2EB, lightgray);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: opacity 3s ease-in;
+    }
+
+    .title.visible {
+      opacity: 1;
+    }
+
+    .subtitle {
+      font-size: 4rem;
+      background: linear-gradient(to bottom, #736EE9, lightgray);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 210px;
+      opacity: 0;
+      transition: opacity 3s ease-in;
+    }
+
+    .subtitle.visible {
+      opacity: 1;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .category {
+      text-align: center;
+    }
+
+    .category img {
+      width: 320px;
+      height: 180px;
+      border-radius: 10px;
+      transition: transform 1s ease-in-out;
+    }
+
+    .category img:hover {
+      transform: scale(1.1);
+    }
+
+    .category a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .category h3 {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 1.5rem;
+      background: linear-gradient(to bottom, #0EE2EB, #736EE9);
+      color: #fff;
+      border: 2px solid #0EE2EB;
+      position: relative;
+      overflow: hidden;
+      transition: transform 2s ease-in-out;
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 0;
+      font-size: 1.5rem;
+      padding: 10px 20px;
+    }
+
+    .category h3::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      transition: top 1s;
+    }
+
+    .category h3:hover::before {
+      top: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="video-background">
+    <video autoplay muted loop>
+      <source src="background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <header>
+    <h1><b>Explore the Universe</b></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <h1 class="title" id="main-title"><b>WELCOME TO THE COSMOS</b></h1>
+      <p class="subtitle"><b>Embark on a journey through the wonders of the universe.</b></p>
+    </section>
+    <section class="content">
+      <div class="category">
+        <a href="moon.html">
+          <img src="moon.jpeg" alt="Moon">
+          <h3>Moon</h3>
+        </a>
+      </div>
+      <div class="category">
+        <a href="quasar.html">
+          <img src="quasar.jpg" alt="Quasar">
+          <h3>Quasar</h3>
+        </a>
+      </div>
+      <div class="category">
+        <a href="blackhole.html">
+          <img src="blackhole.jpg" alt="Black Hole">
+          <h3>Black Hole</h3>
+        </a>
+      </div>
+      <div class="category">
+        <a href="asteroid.html">
+          <img src="asteroid.jpg" alt="Asteroid">
+          <h3>Asteroid</h3>
+        </a>
+      </div>
+      <div class="category">
+        <a href="comets.html">
+          <img src="comet.jpg" alt="Comets">
+          <h3>Comets</h3>
+        </a>
+      </div>
+      <div class="category">
+        <a href="nebula.html">
+          <img src="nebula.jpeg" alt="Nebulas">
+          <h3>Nebulas</h3>
+        </a>
+      </div>
+      <div class="category">
+        <a href="stars.html">
+          <img src="star.jpg" alt="Stars">
+          <h3>Stars</h3>
+        </a>
+      </div>
+      <div class="category">
+        <a href="solarsystem.html">
+          <img src="solarsystem.jpeg" alt="The Solar System">
+          <h3>The Solar System</h3>
+        </a>
+      </div>
+      <div class="category">
+        <a href="earth.html">
+          <img src="earth.jpg" alt="Earth">
+          <h3>Earth</h3>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Explore the Universe</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Add visible class to both title and subtitle
+      document.getElementById("main-title").classList.add("visible");
+      document.querySelector(".subtitle").classList.add("visible");
+    });
+  </script>
+</body>
+
+</html>

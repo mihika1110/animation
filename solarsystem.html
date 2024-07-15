@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System - Explore the Universe: Our Solar System</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+
+    #main-header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #f9f871;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+    }
+
+    .title {
+      font-size: 8rem;
+      background: linear-gradient(to bottom, white, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .title.visible {
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    .sketchfab-embed-wrapper {
+      width: 100%;
+      height: 100vh;
+      margin: 20px 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .info-block {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    .info-block.hidden {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    #rocket-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 200px;
+      background: url('rocket.png') no-repeat center center;
+      background-size: contain;
+      animation: launch 5s ease-in-out forwards;
+      z-index: 10;
+    }
+
+    #message {
+      position: absolute;
+      bottom: 220px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+    }
+
+    @keyframes launch {
+      0% {
+        bottom: 0;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        bottom: 50%;
+        transform: translateX(-50%) scale(1.5);
+      }
+
+      100% {
+        bottom: 100%;
+        transform: translateX(-50%) scale(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="rocket-container"></div>
+  <div id="message">Embarking on a Journey through the Solar System</div>
+
+  <header id="main-header" style="display: none;">
+    <h1>Explore the Universe</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="section" id="main-section">
+      <div class="title" id="main-title"><b>SOLAR SYSTEM</b></div>
+      <div>
+        <h2 style="font-size: 2.5rem;" id="solarsystem-topic" class="fade-in">What is the Solar System?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="solarsystem-text"
+          class="fade-in">
+          The solar system consists of the Sun, eight planets, their moons, and a variety of smaller objects such as
+          dwarf planets, asteroids, and comets. The Sun, a medium-sized star, lies at the center of the solar system,
+          providing the gravitational pull that keeps all these objects in orbit. The planets range from the rocky
+          terrestrial planets like Earth to the gas giants like Jupiter. The study of our solar system helps us
+          understand the formation and evolution of planetary systems.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="planetary-system-topic" class="fade-in">Components of the Solar System</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="planetary-system-text" class="fade-in">
+          The solar system is composed of various celestial objects, including planets, moons, asteroids, comets, and
+          dwarf planets. The terrestrial planets (Mercury, Venus, Earth, Mars) are composed mostly of rock and metal.
+          The gas giants (Jupiter and Saturn) are massive planets with thick atmospheres of hydrogen and helium. The ice
+          giants (Uranus and Neptune) have similar compositions but also contain water, ammonia, and methane ices.
+          Additionally, the Kuiper Belt and Oort Cloud are regions filled with icy bodies and comets.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="solar-system-formation-topic" class="fade-in">Formation of the Solar System
+        </h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="solar-system-formation-text" class="fade-in">
+          The solar system formed about 4.6 billion years ago from a giant molecular cloud. A shockwave from a nearby
+          supernova likely triggered the collapse of the cloud, leading to the formation of the Sun at its center. The
+          remaining material flattened into a rotating disk, where dust and gas coalesced to form the planets, moons,
+          and other objects. Studying the solar system's formation provides insights into the processes that create
+          planetary systems throughout the galaxy.
+        </p>
+      </div>
+      <div class="sketchfab-embed-wrapper"> <iframe title="Solar System : المجموعة الشمسية" frameborder="0"
+          allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+          allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+          execution-while-not-rendered web-share
+          src="https://sketchfab.com/models/fad1f8a62d3848d0be664339e6f3b1a2/embed"> </iframe>
+        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a
+            href="https://sketchfab.com/3d-models/solar-system-fad1f8a62d3848d0be664339e6f3b1a2?utm_medium=embed&utm_campaign=share-popup&utm_content=fad1f8a62d3848d0be664339e6f3b1a2"
+            </div>
+      </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const rocketContainer = document.getElementById('rocket-container');
+      const message = document.getElementById('message');
+      const mainHeader = document.getElementById('main-header');
+      const mainSection = document.getElementById('main-section');
+      const mainTitle = document.getElementById('main-title');
+      const fadeInElements = document.querySelectorAll('.fade-in');
+
+      setTimeout(() => {
+        rocketContainer.style.animation = 'fadeOut 2s forwards';
+        message.style.animation = 'fadeOut 2s forwards';
+      }, 3000);
+
+      setTimeout(() => {
+        mainHeader.style.display = 'flex';
+        mainSection.classList.add('visible');
+        mainTitle.classList.add('visible');
+        fadeInElements.forEach(element => {
+          element.classList.add('visible');
+        });
+      }, 5000);
+    });
+  </script>
+</body>
+
+</html>

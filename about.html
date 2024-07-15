@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+
+    #main-header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #f9f871;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+    }
+
+    .title {
+      font-size: 8rem;
+      background: linear-gradient(to bottom, white, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      margin-top: -40px;
+    }
+
+    .title.visible {
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-info p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="main-header">
+    <h1>Explore the Universe</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="section" id="main-section">
+      <div class="title" id="main-title"><b>ABOUT US</b></div>
+      <div class="contact-info fade-in">
+        <p>Welcome to our website dedicated to providing basic knowledge about objects in space, crafted with precision
+          and creativity. This project, submitted for the NJACK SUMMER OF CODE (NSOC), is a collaborative
+          effort by three enthusiastic students from the Indian Institute of Technology, Patna.<br><br>Our team consists
+          of Mihika, and Kshitij. Mihika, a second-year BTech student in Computer Science and Engineering,
+          brings her expertise in coding and her innovative approach to web design. Her technical acumen and attention
+          to detail ensure that our website is not only informative but also user-friendly and visually
+          stunning.<br><br>Kshitij, also in his second year, is pursuing BTech in Mechanical Engineering. His keen
+          understanding of engineering principles and his passion for space science have been instrumental in creating
+          content that is both accurate and engaging. Kshitij's ability to simplify complex concepts makes our website
+          an excellent resource for anyone interested in learning about space.<br><br>Together, we have combined our
+          skills to create a platform that uses extensive animations to make learning about space objects both fun and
+          educational. We hope our efforts inspire curiosity and a love for space in all our visitors. Thank you for
+          exploring with us!</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const mainSection = document.getElementById('main-section');
+      const mainTitle = document.getElementById('main-title');
+      const fadeInElements = document.querySelectorAll('.fade-in');
+
+      setTimeout(() => {
+        mainSection.classList.add('visible');
+        mainTitle.classList.add('visible');
+        fadeInElements.forEach(element => {
+          element.classList.add('visible');
+        });
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>

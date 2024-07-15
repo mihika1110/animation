@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quasar - Explore the Universe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+
+    #main-header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #f9f871;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+    }
+
+    .title {
+      font-size: 8rem;
+      background: linear-gradient(to bottom, white, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .title.visible {
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    .sketchfab-embed-wrapper {
+      width: 100%;
+      height: 100vh;
+      margin: 20px 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .info-block {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    .info-block.hidden {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    #rocket-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 200px;
+      background: url('rocket.png') no-repeat center center;
+      background-size: contain;
+      animation: launch 5s ease-in-out forwards;
+      z-index: 10;
+    }
+
+    #message {
+      position: absolute;
+      bottom: 220px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+    }
+
+    @keyframes launch {
+      0% {
+        bottom: 0;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        bottom: 50%;
+        transform: translateX(-50%) scale(1.5);
+      }
+
+      100% {
+        bottom: 100%;
+        transform: translateX(-50%) scale(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="rocket-container"></div>
+  <div id="message">Taking you to the vastness of Quasar</div>
+
+  <header id="main-header" style="display: none;">
+    <h1>Explore the Universe</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="section" id="main-section">
+      <div class="title" id="main-title"><b>QUASAR</b></div>
+      <div>
+        <h2 style="font-size: 2.5rem;" id="quasar-topic" class="fade-in">What are quasars?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="quasar-text"
+          class="fade-in">
+          Quasars, short for "quasi-stellar radio sources," are extremely luminous and energetic objects found in the
+          distant universe. They appear star-like ("stellar") in images but emit vast amounts of energy across the
+          electromagnetic spectrum, from radio waves to X-rays. Quasars are powered by supermassive black holes at their
+          centers, which accrete huge amounts of matter. This process releases energy as electromagnetic radiation and
+          jets of particles moving at nearly the speed of light. Quasars are crucial for understanding galaxy formation,
+          the evolution of black holes, and the early universe's conditions, serving as beacons that illuminate the
+          distant cosmos.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="quasar-formation-topic" class="fade-in">How are Quasars made?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="quasar-formation-text" class="fade-in">
+          Quasars are formed by supermassive black holes at the centers of galaxies. As these black holes accrete
+          enormous
+          amounts of surrounding gas and dust, they release tremendous amounts of energy. This process occurs because
+          the
+          gravitational energy of infalling material is converted into radiation and powerful jets of particles. The
+          accretion disk surrounding the black hole heats up to extreme temperatures, emitting radiation across the
+          electromagnetic spectrum, from radio waves to gamma rays. These energetic emissions make quasars some of the
+          brightest objects in the universe, visible across vast cosmic distances and providing insights into the early
+          stages of galaxy evolution.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="quasar-characteristics-topic" class="fade-in">What are some prominent
+          characteristics of Quasars?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="quasar-characteristics-text" class="fade-in">
+          Quasars, or quasi-stellar radio sources, are fascinating astronomical objects that exhibit several unique
+          characteristics:
+          <br><br>
+          <strong>1. Extreme Brightness:</strong> Quasars are among the brightest objects in the universe, outshining
+          entire galaxies
+          despite their relatively small size. This brightness is due to the intense energy emitted from the
+          supermassive
+          black holes at their centers as they accrete matter.
+          <br><br>
+          <strong>2. High Redshifts:</strong> Quasars are typically observed at very high redshifts, indicating that
+          they are located at
+          extreme distances from Earth. This suggests that quasars are seen as they were in the early universe,
+          providing
+          valuable insights into the cosmos' early stages.
+          <br><br>
+          <strong>3. Broad Emission Lines:</strong> Quasars display broad emission lines in their spectra, indicating
+          rapid movement of
+          gas clouds around the central black hole. These emission lines are caused by the hot, ionized gas swirling
+          around
+          the black hole at tremendous speeds.
+          <br><br>
+          <strong>4. Variability:</strong> Quasars exhibit variability in their brightness over relatively short
+          timescales, sometimes
+          changing in brightness within days or weeks. This variability suggests that the processes governing quasars,
+          such
+          as accretion onto the central black hole or interactions with surrounding material, can be highly dynamic.
+          <br><br>
+          Understanding quasars is crucial for studying galaxy evolution, supermassive black holes, and the early
+          universe's
+          conditions. Their properties challenge our understanding of astrophysics and cosmology, making them a key area
+          of
+          research in modern astronomy.
+        </p>
+      </div>
+      <div class="sketchfab-embed-wrapper">
+        <iframe title="Quasar" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+          allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+          execution-while-not-rendered web-share
+          src="https://sketchfab.com/models/fa4809f46c534503bfe2d354fa8ec8ec/embed?ui_theme=dark"></iframe>
+        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+          <a href="https://sketchfab.com/3d-models/quasar-fa4809f46c534503bfe2d354fa8ec8ec?utm_medium=embed&utm_campaign=share-popup&utm_content=fa4809f46c534503bfe2d354fa8ec8ec"
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(() => {
+        document.getElementById('rocket-container').style.animationPlayState = 'running';
+        document.getElementById('message').style.animation = 'fadeOut 5s ease-in-out forwards';
+        setTimeout(() => {
+          document.getElementById('rocket-container').style.display = 'none';
+          document.getElementById('message').style.display = 'none';
+          document.getElementById('main-section').classList.add('visible');
+          document.getElementById('main-title').classList.add('visible');
+          document.getElementById('main-header').style.display = 'flex';
+          const fadeIns = document.querySelectorAll('.fade-in');
+          fadeIns.forEach((element, index) => {
+            setTimeout(() => {
+              element.style.opacity = '1';
+            }, index * 500);
+          });
+
+          const infoBlocks = document.querySelectorAll('.info-block');
+          infoBlocks.forEach((block, index) => {
+            setTimeout(() => {
+              block.classList.remove('hidden');
+            }, (index + 1) * 1000);
+          });
+        }, 5000);
+      }, 500);
+    });
+  </script>
+</body>
+
+</html>

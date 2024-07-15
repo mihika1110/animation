@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebula - Explore the Universe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+
+    #main-header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #f9f871;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+    }
+
+    .title {
+      font-size: 8rem;
+      background: linear-gradient(to bottom, white, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .title.visible {
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    .sketchfab-embed-wrapper {
+      width: 100%;
+      height: 100vh;
+      margin: 20px 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .info-block {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    .info-block.hidden {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    #rocket-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 200px;
+      background: url('rocket.png') no-repeat center center;
+      background-size: contain;
+      animation: launch 5s ease-in-out forwards;
+      z-index: 10;
+    }
+
+    #message {
+      position: absolute;
+      bottom: 220px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+    }
+
+    @keyframes launch {
+      0% {
+        bottom: 0;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        bottom: 50%;
+        transform: translateX(-50%) scale(1.5);
+      }
+
+      100% {
+        bottom: 100%;
+        transform: translateX(-50%) scale(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="rocket-container"></div>
+  <div id="message">Exploring the colours of Nebula</div>
+
+  <header id="main-header" style="display: none;">
+    <h1>Explore the Universe</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="section" id="main-section">
+      <div class="title" id="main-title"><b>NEBULA</b></div>
+      <div>
+        <h2 style="font-size: 2.5rem;" id="nebula-topic" class="fade-in">What is a Nebula?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-text" class="fade-in">
+          A nebula is a vast cloud of gas and dust in space, often serving as the birthplace of stars. Nebulae are the remnants of dead or dying stars and can take on various forms and colors depending on their composition and the type of radiation they emit or reflect. They are some of the most beautiful and enigmatic objects in the universe, providing crucial insights into the life cycle of stars and the formation of galaxies.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-formation-topic" class="fade-in">How are Nebulae Formed?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-formation-text" class="fade-in">
+          Nebulae can form from the remnants of a supernova explosion, which is the violent death of a massive star. They can also be created from the shedding of material by a dying star in its late stages of life. Over time, the gas and dust in a nebula can collapse under gravity to form new stars and planetary systems. This cycle of star birth and death is a fundamental process in the universe.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-types-topic" class="fade-in">Types of Nebulae</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-types-text" class="fade-in">
+          There are several types of nebulae, each with unique characteristics. Emission nebulae glow brightly due to the ionization of their gas by high-energy radiation from nearby stars. Reflection nebulae do not emit their own light but reflect the light of nearby stars, often appearing blue due to the scattering of shorter wavelengths of light. Dark nebulae, like the Horsehead Nebula, are dense clouds of gas and dust that block light from objects behind them. Planetary nebulae are the shells of gas ejected by dying stars like our Sun.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-role-topic" class="fade-in">The Role of Nebulae in Star Formation</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-role-text" class="fade-in">
+          Nebulae play a crucial role in the formation of stars. Within these clouds, regions of higher density can collapse under their own gravity to form protostars. As the protostar contracts, it heats up and eventually ignites nuclear fusion in its core, becoming a new star. The leftover material around the new star can form planets, moons, and other celestial bodies, contributing to the ongoing cycle of star birth and death in the universe.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-study-topic" class="fade-in">Studying Nebulae: Insights and Discoveries</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-study-text" class="fade-in">
+          Studying nebulae provides astronomers with valuable information about the processes that govern the universe. By observing the light emitted or reflected by nebulae, scientists can determine their composition, temperature, density, and the presence of new stars. Advances in telescopes and imaging technology have allowed us to capture stunning images of nebulae, revealing their intricate structures and helping to unravel the mysteries of star formation and cosmic evolution.
+        </p>
+      </div>
+      <div class="sketchfab-embed-wrapper">
+        <iframe title="The Helix nebula, the last breath of a star" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+          allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+          src="https://sketchfab.com/models/2a750aef938642a7b1135e9b4613da37/embed">
+        </iframe>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const rocketContainer = document.getElementById('rocket-container');
+      const message = document.getElementById('message');
+      const mainHeader = document.getElementById('main-header');
+      const mainSection = document.getElementById('main-section');
+      const mainTitle = document.getElementById('main-title');
+      const fadeElements = document.querySelectorAll('.fade-in');
+      function hideRocketAndMessage() {
+        rocketContainer.style.animation = 'fadeOut 1s forwards';
+        message.style.animation = 'fadeOut 1s forwards';
+        setTimeout(() => {
+          rocketContainer.style.display = 'none';
+          message.style.display = 'none';
+          mainHeader.style.display = 'flex'; 
+        }, 1000); 
+      }
+      setTimeout(hideRocketAndMessage, 5000);
+      function showMainContent() {
+        mainSection.classList.add('visible');
+        mainTitle.classList.add('visible');
+        fadeElements.forEach((element, index) => {
+          setTimeout(() => {
+            element.classList.add('visible');
+          }, 500 * index); 
+        });
+      }
+      setTimeout(showMainContent, 6000);
+    });
+  </script>
+</body>
+
+</html>

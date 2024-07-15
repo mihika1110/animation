@@ -1,0 +1,227 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  background: #000;
+  overflow-x: hidden;
+  position: relative;
+}
+
+header,
+main,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #f9f871;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f9f871;
+  font-size: 1rem;
+  transition: color 0.5s;
+}
+
+nav ul li a:hover {
+  color: #fff;
+}
+
+main {
+  padding: 20px;
+}
+
+.intro {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.intro h2 {
+  font-size: 2.5rem;
+  animation: fadeIn 3s ease-in-out;
+}
+
+
+.intro p {
+  font-size: 1.2rem;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.rocket {
+  width: 100px;
+  height: 200px;
+  background: url('rocket.png') no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -150px;
+  animation: rocketFly 5s infinite ease-in-out;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.category {
+  flex: 1 1 calc(25% - 40px);
+  margin: 20px;
+  text-align: center;
+  transition: transform 1s;
+}
+
+.category:hover {
+  transform: scale(1.1);
+}
+
+.category a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.category h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.moon,
+.quasar,
+.blackhole,
+.asteroid,
+.comets,
+.darkmatter,
+.darkenergy,
+.cosmicmicrowaveradiation {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-size: cover;
+  animation: float 3s infinite ease-in-out;
+}
+
+.moon {
+  background: url('moon.png') no-repeat center center;
+}
+
+.quasar {
+  background: url('quasar.png') no-repeat center center;
+}
+
+.blackhole {
+  background: url('blackhole.png') no-repeat center center;
+}
+
+.asteroid {
+  background: url('asteroid.png') no-repeat center center;
+}
+
+.comets {
+  background: url('comets.png') no-repeat center center;
+}
+
+.darkmatter {
+  background: url('darkmatter.png') no-repeat center center;
+}
+
+.darkenergy {
+  background: url('darkenergy.png') no-repeat center center;
+}
+
+.cosmicmicrowaveradiation {
+  background: url('cosmicmicrowaveradiation.png') no-repeat center center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+footer p {
+  margin: 0;
+  animation: fadeIn 5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rocketFly {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  animation: fadeIn 3s ease-in-out;
+  filter: brightness(60%);
+}
+
+#video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 3s ease-in-out;
+  pointer-events: none;
+  object-fit: cover;
+}

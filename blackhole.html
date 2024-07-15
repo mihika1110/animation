@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole - Explore the Universe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+
+    #main-header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #f9f871;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+    }
+
+    .title {
+      font-size: 8rem;
+      background: linear-gradient(to bottom, white, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .title.visible {
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    .sketchfab-embed-wrapper {
+      width: 100%;
+      height: 100vh;
+      margin: 20px 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .info-block {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    .info-block.hidden {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    #rocket-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 200px;
+      background: url('rocket.png') no-repeat center center;
+      background-size: contain;
+      animation: launch 5s ease-in-out forwards;
+      z-index: 10;
+    }
+
+    #message {
+      position: absolute;
+      bottom: 220px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+    }
+
+    @keyframes launch {
+      0% {
+        bottom: 0;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        bottom: 50%;
+        transform: translateX(-50%) scale(1.5);
+      }
+
+      100% {
+        bottom: 100%;
+        transform: translateX(-50%) scale(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="rocket-container"></div>
+  <div id="message">Diving into the singularity of Black Hole</div>
+
+  <header id="main-header" style="display: none;">
+    <h1>Explore the Universe</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="section" id="main-section">
+      <div class="title" id="main-title"><b>BLACK HOLE</b></div>
+      <div>
+        <h2 style="font-size: 2.5rem;" id="blackhole-topic" class="fade-in">What is a Black Hole?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="blackhole-text"
+          class="fade-in">
+          A black hole is a region in space where the gravitational pull is so strong that nothing, not even light, can
+          escape from it. Black holes form when massive stars collapse under their own gravity at the end of their life
+          cycles. The boundary surrounding a black hole is called the event horizon, which is the point beyond which
+          nothing can return. The core of a black hole, known as the singularity, is where density and gravity become
+          infinite, and the laws of physics as we know them cease to operate.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="blackhole-formation-topic" class="fade-in">How are Black Holes Formed?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="blackhole-formation-text" class="fade-in">
+          Black holes are formed through the collapse of massive stars in a supernova explosion. When a star depletes
+          its nuclear fuel, it can no longer support its own weight, leading to a catastrophic collapse. If the
+          remaining core is sufficiently massive, it continues to collapse into a black hole. There are also
+          supermassive black holes, found at the centers of galaxies, which are believed to form through the merging of
+          smaller black holes and the accumulation of mass over time.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="blackhole-gravity-topic" class="fade-in">What Happens Inside a Black Hole?
+        </h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="blackhole-gravity-text" class="fade-in">
+          The interior of a black hole is a mystery and a topic of significant interest in theoretical physics.
+          According to general relativity, the core of a black hole, or the singularity, is a point of infinite density
+          where space and time become infinitely curved. This implies that the known laws of physics break down.
+          However, quantum mechanics suggests there may be a more complex structure. The study of black holes continues
+          to challenge our understanding of gravity, quantum mechanics, and the nature of the universe.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="blackhole-impact-topic" class="fade-in">How Do Black Holes Affect Their
+          Surroundings?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="blackhole-impact-text" class="fade-in">
+          Black holes have a significant impact on their surroundings due to their immense gravitational pull. They can
+          strip matter from nearby stars and accrete it into a swirling disk, known as an accretion disk, which emits
+          intense radiation. This process can power some of the most energetic phenomena in the universe, such as
+          quasars and gamma-ray bursts. Black holes also play a crucial role in the formation and evolution of galaxies,
+          influencing star formation and galactic dynamics through their gravitational interactions.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="blackhole-study-topic" class="fade-in">Why are Black Holes Important in
+          Modern Physics?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="blackhole-study-text" class="fade-in">
+          Black holes are fundamental to our understanding of the universe and serve as natural laboratories for testing
+          the laws of physics under extreme conditions. They provide insights into the nature of gravity, the behavior
+          of matter and energy, and the fundamental structure of space-time. The study of black holes has led to
+          significant advancements in theoretical physics, including the development of theories that attempt to unify
+          general relativity and quantum mechanics, such as string theory and loop quantum gravity.
+        </p>
+      </div>
+      <div class="sketchfab-embed-wrapper"> <iframe title="Blackhole" frameborder="0" allowfullscreen
+          mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+          xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+          src="https://sketchfab.com/models/74cbeaeae2174a218fe9455d77902b5c/embed"> </iframe>
+        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a
+            href="https://sketchfab.com/3d-models/blackhole-74cbeaeae2174a218fe9455d77902b5c?utm_medium=embed&utm_campaign=share-popup&utm_content=74cbeaeae2174a218fe9455d77902b5c"
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const rocketContainer = document.getElementById('rocket-container');
+      const message = document.getElementById('message');
+      const mainHeader = document.getElementById('main-header');
+      const mainSection = document.getElementById('main-section');
+      const mainTitle = document.getElementById('main-title');
+      const fadeElements = document.querySelectorAll('.fade-in');
+
+      function hideRocketAndMessage() {
+        rocketContainer.style.animation = 'fadeOut 1s forwards';
+        message.style.animation = 'fadeOut 1s forwards';
+        setTimeout(() => {
+          rocketContainer.style.display = 'none';
+          message.style.display = 'none';
+          mainHeader.style.display = 'flex'; 
+        }, 1000); 
+      }
+
+      setTimeout(hideRocketAndMessage, 5000);
+
+      function showMainContent() {
+        mainSection.classList.add('visible');
+        mainTitle.classList.add('visible');
+        fadeElements.forEach((element, index) => {
+          setTimeout(() => {
+            element.classList.add('visible');
+          }, 500 * index); 
+        });
+      }
+
+      setTimeout(showMainContent, 6000);
+    });
+  </script>
+</body>
+
+</html>

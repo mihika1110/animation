@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comets - Explore the Universe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+
+    #main-header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #f9f871;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+    }
+
+    .title {
+      font-size: 8rem;
+      background: linear-gradient(to bottom, white, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .title.visible {
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    .sketchfab-embed-wrapper {
+      width: 100%;
+      height: 100vh;
+      margin: 20px 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .info-block {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    .info-block.hidden {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    #rocket-container {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 200px;
+      background: url('rocket.png') no-repeat center center;
+      background-size: contain;
+      animation: launch 5s ease-in-out forwards;
+      z-index: 10;
+    }
+
+    #message {
+      position: absolute;
+      bottom: 220px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+    }
+
+    @keyframes launch {
+      0% {
+        bottom: 0;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        bottom: 50%;
+        transform: translateX(-50%) scale(1.5);
+      }
+
+      100% {
+        bottom: 100%;
+        transform: translateX(-50%) scale(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="rocket-container"></div>
+  <div id="message">Onboarding you to the long journey of Comets</div>
+
+  <header id="main-header" style="display: none;">
+    <h1>Explore the Universe</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="section" id="main-section">
+      <div class="title" id="main-title"><b>COMETS</b></div>
+      <div>
+        <h2 style="font-size: 2.5rem;" id="nebula-topic" class="fade-in">What are comets?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-text"
+          class="fade-in">
+          Comets are icy bodies in space that originate from the outer regions of the solar system. They are composed of
+          a mixture of water, frozen gases, dust, and rocky material. When a comet approaches the Sun, it heats up,
+          causing the ice to vaporize and release gas and dust, forming a glowing coma around the nucleus and often
+          creating a visible tail that extends away from the Sun.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-formation-topic" class="fade-in">Where do comets come from?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;"
+          id="nebula-formation-text" class="fade-in">
+          Comets primarily come from two regions in the outer solar system: the Kuiper Belt and the Oort Cloud. The
+          Kuiper Belt is a region beyond Neptune's orbit, containing many icy bodies and dwarf planets. The Oort Cloud
+          is a distant, spherical shell surrounding the solar system, believed to be the source of long-period comets
+          that have orbits lasting thousands of years.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-types-topic" class="fade-in">What are the parts of a comet?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-types-text"
+          class="fade-in">
+          A comet has several key parts: the nucleus, the coma, and the tail. The nucleus is the solid core made of ice,
+          dust, and rocky material. The coma is the cloud of gas and dust that forms around the nucleus when the comet
+          gets close to the Sun. The tail, which can be millions of kilometers long, is made up of gas (ion tail) and
+          dust (dust tail) that are pushed away from the comet by the solar wind and radiation pressure.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-role-topic" class="fade-in">How are comets classified?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-role-text"
+          class="fade-in">
+          Comets are classified based on their orbital periods. Short-period comets have orbits that take less than 200
+          years to complete and typically come from the Kuiper Belt. Long-period comets have orbits that take more than
+          200 years and often originate from the Oort Cloud. There are also single-apparition comets, which are on
+          trajectories that will take them out of the solar system permanently after their first pass by the Sun.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-study-topic" class="fade-in">How do comets contribute to our
+          understanding of the solar system?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-study-text"
+          class="fade-in">
+          Comets are considered "time capsules" that contain pristine material from the early solar system. Studying
+          comets helps scientists understand the conditions and processes that were present during the formation of the
+          solar system. Analyzing the composition of cometary nuclei and the material in their comas and tails provides
+          insights into the primordial building blocks that formed planets and other bodies.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-study-topic" class="fade-in">Can comets impact Earth?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-study-text"
+          class="fade-in">
+          Yes, comets can impact Earth, although such events are rare. When a comet or a fragment of a comet collides
+          with Earth, it can cause significant damage due to the high speeds at which these objects travel. Past impacts
+          are believed to have played a role in shaping Earth's geological history and may have contributed to mass
+          extinction events.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-study-topic" class="fade-in">What missions have been sent to study
+          comets?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-study-text"
+          class="fade-in">
+          Several space missions have been sent to study comets. Notable missions include NASA's Stardust, which
+          collected samples from Comet Wild 2; ESA's Rosetta, which orbited and landed a probe on Comet
+          67P/Churyumov-Gerasimenko; and NASA's Deep Impact, which sent an impactor to collide with Comet Tempel 1,
+          providing valuable data about its composition.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-study-topic" class="fade-in">What are some famous comets?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-study-text"
+          class="fade-in">
+          Some famous comets include Halley's Comet, which is a short-period comet visible from Earth approximately
+          every 76 years, and Comet Hale-Bopp, which was one of the brightest comets of the 20th century and visible to
+          the naked eye for 18 months. Another well-known comet is Comet Shoemaker-Levy 9, which famously collided with
+          Jupiter in 1994.
+        </p>
+        <h2 style="font-size: 2.5rem;" id="nebula-study-topic" class="fade-in">What causes a comet's tail to form and
+          point away from the Sun?</h2>
+        <p style="font-size: 1.2rem; text-align: justify; max-width: 800px; margin: 20px auto;" id="nebula-study-text"
+          class="fade-in">
+          A comet's tail forms as the Sun's heat causes the ices in the nucleus to sublimate (turn from solid to gas),
+          releasing gas and dust into space. The solar wind (a stream of charged particles from the Sun) and the Sun's
+          radiation pressure push this material away from the nucleus, creating the tail. The ion tail is formed by
+          charged gas particles and always points directly away from the Sun, while the dust tail is made of larger
+          particles and curves along the comet's path.
+        </p>
+      </div>
+      <div class="sketchfab-embed-wrapper"> <iframe title="Parts of a Comet" frameborder="0" allowfullscreen
+          mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+          xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+          src="https://sketchfab.com/models/fc0f8e88db8b46b286c223c1f5b578a0/embed"> </iframe>
+        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a
+            href="https://sketchfab.com/3d-models/parts-of-a-comet-fc0f8e88db8b46b286c223c1f5b578a0?utm_medium=embed&utm_campaign=share-popup&utm_content=fc0f8e88db8b46b286c223c1f5b578a0"
+            </div>
+      </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const rocketContainer = document.getElementById('rocket-container');
+      const message = document.getElementById('message');
+      const mainHeader = document.getElementById('main-header');
+      const mainSection = document.getElementById('main-section');
+      const mainTitle = document.getElementById('main-title');
+      const fadeElements = document.querySelectorAll('.fade-in');
+
+      function hideRocketAndMessage() {
+        rocketContainer.style.animation = 'fadeOut 1s forwards';
+        message.style.animation = 'fadeOut 1s forwards';
+        setTimeout(() => {
+          rocketContainer.style.display = 'none';
+          message.style.display = 'none';
+          mainHeader.style.display = 'flex'; 
+        }, 1000); 
+      }
+
+      setTimeout(hideRocketAndMessage, 5000);
+
+      function showMainContent() {
+        mainSection.classList.add('visible');
+        mainTitle.classList.add('visible');
+        fadeElements.forEach((element, index) => {
+          setTimeout(() => {
+            element.classList.add('visible');
+          }, 500 * index); 
+        });
+      }
+
+      setTimeout(showMainContent, 6000);
+    });
+  </script>
+</body>
+
+</html>
